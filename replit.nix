@@ -1,4 +1,4 @@
-{ pkgs }: {
+{pkgs }: {
 	deps = [
 		pkgs.nano
   pkgs.nodejs-18_x
