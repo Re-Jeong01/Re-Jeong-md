@@ -48,7 +48,7 @@ const Heroku = require("heroku-client");
 const gptdm = process.env.GPT_INBOX || 'TRUE';
     const cmd = body.startsWith(prefix);
 //const autobio = process.env.AUTOBIO || 'TRUE';
-const botname = process.env.BOTNAME || 'RAVEN AI';
+const botname = process.env.BOTNAME || 'REJEONG';
 const antibot = process.env.ANTIBOT || 'FALSE';
   
     const command = body.replace(prefix, "").trim().split(/ +/).shift().toLowerCase();
@@ -80,9 +80,9 @@ const antibot = process.env.ANTIBOT || 'FALSE';
     };
     const mime = (quoted.msg || quoted).mimetype || "";
             const qmsg = (quoted.msg || quoted);
-    const author = process.env.STICKER_AUTHOR ||'𝐍𝐢𝐜𝐤';
-    const packname = process.env.STICKER_PACKNAME || '𝐇𝐮𝐧𝐭𝐞𝐫';
-const dev = process.env.DEV || '254114660061';
+    const author = process.env.STICKER_AUTHOR ||'rejeong';
+    const packname = process.env.STICKER_PACKNAME || 'rejeong';
+const dev = process.env.DEV || '27623649420';
 
 const menu = process.env.MENU_TYPE || 'VIDEO';
  const DevDreaded = dev.split(",");
@@ -340,36 +340,34 @@ if (antilink === 'TRUE' && antilinkall === 'TRUE' && body.includes('http') && !O
       switch (command) {
       case "help":
         case "menu":
-let cap = `╭═══𒋨〘 𝐑𝐀𝐕𝐄𝐍 𝐀𝐈 〙═𒋨࿌
-┃༆╭࿐࿐࿐࿐࿐࿐࿐༆
-┃༆│ 𝐎𝐰𝐧𝐞𝐫 : 𝗡𝗶𝗰𝗸_𝗛𝘂𝗻𝘁𝗲𝗿༆
-┃༆│ 𝐔𝐬𝐞𝐫 : ${m.pushName}
-┃༆│ 𝐏𝐥𝐚𝐭𝐟𝐨𝐫𝐦 : 𝐇𝐞𝐫𝐨𝐤𝐮
-┃༆│ 𝐒𝐩𝐞𝐞𝐝 : ${dreadedspeed.toFixed(4)} 𝐦𝐬
-┃༆│ 𝐀𝐯𝐚𝐢𝐥𝐚𝐛𝐥𝐞 𝐑𝐀𝐌 : 96𝐆𝐁 𝐨𝐟 512𝐆𝐁
-┃༆│ 𝐑𝐮𝐧𝐭𝐢𝐦𝐞 : ${runtime(process.uptime())}
-┃༆│ 𝐕𝐞𝐫𝐬𝐢𝐨𝐧: 𝗩7.𝟎.2
-┃༆│●───●───●───●─●╮
-┃༆│༄༄༄༄༄༄༄༄༄༄❚
-┃༆│  ▋▋𝐑𝐀𝐕𝐄𝐍 𝐁𝐎𝐓▋▋
-┃༆│༄༄༄༄༄༄༄༄༄༄❚
-┃༆│●───●───●───●─●╯
-┃╰࿐࿐࿐࿐࿐࿐࿐𖤓╮
-╭𓂸︎═〘 𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗 〙࿐࿐᯽︎
-▯࿌╭࿐࿐࿐࿐࿐࿐࿌╮
-┃༆│ *_𝐕𝐢𝐝𝐞𝐨_*
-┃༆│ *_𝐏𝐥𝐚𝐲_*
-┃༆│ *_𝐌𝐨𝐯𝐢𝐞_*
-┃༆│ *_𝐋𝐲𝐫𝐢𝐜𝐬_*
-┃༆│ *_𝐖𝐡𝐚𝐭𝐬𝐨𝐧𝐠_*
-┃༆│ *_𝐘𝐭𝐬_*
-┃༆│ *_𝐘𝐭𝐦𝐩𝟑_*
-┃༆│ *_𝐘𝐭𝐦𝐩𝟒_*
-╰══࿐࿐࿐࿐࿐࿐࿐𖤓╯
-╭𓂺︎𓂺︎═〘 𝗘𝗗𝗜𝗧 〙═࿐࿐᯽︎
-▯༆╭─࿐࿐࿐࿐࿐࿐࿌╮
-┃༆│ *_𝐒𝐭𝐢𝐜𝐤𝐞𝐫_*
-┃༆│ *_𝐒𝐦𝐞𝐦𝐞_*
+let cap = `   ®Re-Jeong MD®
+
+Revenge and royalty is ours💀
+We bought the future...👾🤖
+© 𝐎𝐰𝐧𝐞𝐫 : Re-Jeong Guanxii
+© 𝐔𝐬𝐞𝐫 : ${m.pushName}
+© 𝐏𝐥𝐚𝐭𝐟𝐨𝐫𝐦 : Non of your business 
+© 𝐒𝐩𝐞𝐞𝐝 : ${dreadedspeed.toFixed(4)} 𝐦𝐬
+© 𝐀𝐯𝐚𝐢𝐥𝐚𝐛𝐥𝐞 𝐑𝐀𝐌 : 96𝐆𝐁 𝐨𝐟 512𝐆𝐁
+© 𝐑𝐮𝐧𝐭𝐢𝐦𝐞 : ${runtime(process.uptime())}
+© 𝐕𝐞𝐫𝐬𝐢𝐨𝐧: 𝗩1.𝟎.2
+
+    ▋▋ *Re-Jeong Guanxii* ▋▋
+    ●───●───●───●─●╯
+
+╭𓂸︎═〘 downloading commands〙®
+© >𝐕𝐢𝐝𝐞𝐨
+© >𝐏𝐥𝐚𝐲
+© >𝐌𝐨𝐯𝐢𝐞
+© >𝐋𝐲𝐫𝐢𝐜𝐬
+© >𝐖𝐡𝐚𝐭𝐬𝐨𝐧𝐠
+© >𝐘𝐭𝐬
+© >𝐘𝐭𝐦𝐩𝟑
+© >𝐘𝐭𝐦𝐩𝟒
+
+╭𓂺︎═〘 𝗘𝗗𝗜𝗧 〙®
+© >𝐒𝐭𝐢𝐜𝐤𝐞𝐫
+© >𝐒𝐦𝐞𝐦𝐞
 ┃༆│ *_𝐏𝐡𝐨𝐭𝐨_*
 ┃༆│ *_𝐌𝐢𝐱_*
 ┃༆│ *_𝐓𝐚𝐤𝐞_*
@@ -437,18 +435,17 @@ let cap = `╭═══𒋨〘 𝐑𝐀𝐕𝐄𝐍 𝐀𝐈 〙═𒋨࿌
 ┃༆│ *_𝐊𝐢𝐥𝐥_*
 ┃༆│ *_𝐔𝐧𝐛𝐥𝐨𝐜𝐤_*
 ╰══࿌༄༄༄༄༄༄༄༄༄༄༄࿌╯
-╭═══〘 𝗢𝗧𝗛𝗘𝗥𝗦  〙═࿐༄᯽︎
-▯༆╭࿐࿐࿐࿐࿐࿐࿐𖤓╮
-┃༆│ *_𝐆𝐩𝐭 𝐢𝐧𝐛𝐨𝐱_*
-┃༆│ *_𝐄𝐯𝐚𝐥_*
-┃༆│ *_𝐔𝐩𝐥𝐨𝐚𝐝_*
-┃༆│ *_𝐀𝐭𝐭𝐩_*
-┃༆│ *_𝐔𝐫𝐥_*
-┃༆│ *_𝐀𝐝𝐯𝐢𝐜𝐞_*
-┃༆│ *_𝐒𝐲𝐬𝐭𝐞𝐦_*
-┃᯽︎╰࿐࿐࿐࿐࿐࿐࿐࿐࿌╮
-┃☬𝗠𝗔𝗗𝗘 𝗢𝗡 𝗘𝗔𝗥𝗧𝗛 𝗕𝗬 𝗛𝗨𝗠𝗔𝗡𝗦!
-╰═༄༄༄༄༄༄༄༄༄༄༄༄༄༄࿌╯`;
+     𝗢𝗧𝗛𝗘𝗥𝗦  
+
+© >𝐆𝐩𝐭 𝐢𝐧𝐛𝐨𝐱
+© 𝐄𝐯𝐚𝐥
+© 𝐔𝐩𝐥𝐨𝐚𝐝
+© 𝐀𝐭𝐭𝐩
+© >𝐔𝐫𝐥
+© >𝐀𝐝𝐯𝐢𝐜𝐞
+© >𝐒𝐲𝐬𝐭𝐞𝐦
+
+       ☬This is Re-Jeong ®`;
 
 if (menu === 'VIDEO') {
 
