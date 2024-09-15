@@ -66,7 +66,7 @@ href="https://whatsapp.com/channel/0029ValVRdpI1rcfS1rAJq3h">
 
 -***`Paste your creds in the dreaded1 folder 📁 Create new app,link it to your GitHub and deploy then start the worker.`***
 
-
+- ***You MUST `Deploy yourself a bug bot` . Get  the  repo by tapping  [`here`](https://github.com/Re-Jeong01/Re-Jeong-v1)***
 
 ***Tap the WhatsApp logo below to join our channel and group for updates***
 
