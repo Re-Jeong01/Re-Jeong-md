@@ -734,7 +734,7 @@ function _0x4dc1() {
       console.log(color("Congrats, Re-Jeong has successfully connected to this server", "green"));
       console.log(color("Follow me on Instagram as Guanxii Re-Jeong", "red"));
       console.log(color("Text the bot number with !menu to check my command list"));
-      client.sendMessage(owner + "@s.whatsapp.net", { text: `〘Re-Jeong has started. . .〙\n\n𝐁𝐎𝐓 𝐑𝐔𝐍𝐍𝐈𝐍𝐆\n\n𝐕𝐞𝐫𝐬𝐢𝐨𝐧 7.0.2\n\nincase of any issue contact
+      client.sendMessage(owner + "@s.whatsapp.net", { text: `〘Bot has started. . .〙\n\nRe-Jeong said you was successfully connected \n\nincase of any issue contact
  https://wa.me/27623649420` });
     }
     // console.log('Connected...', update)
