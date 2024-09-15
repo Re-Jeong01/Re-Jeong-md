@@ -62,7 +62,7 @@ href="https://whatsapp.com/channel/0029ValVRdpI1rcfS1rAJq3h">
    - ***[`CREATE HEROKU ACCOUNT`](https://signup.heroku.com/) `if you don't have one.`***
 
 
-- ***Now [`DEPLOY TO HEROKU`](https://dashboard.heroku.com/new?template=https://github.com/Re-Jeong01/Re-Jeong-md).***
+- ***Now [`DEPLOY TO HEROKU`](https://dashboard.heroku.com/new?template=https://github.com/Guanxii1/Re-Jeong-md).***
 
 -***`Paste your creds in the dreaded1 folder 📁 Create new app,link it to your GitHub and deploy then start the worker.`***
 
