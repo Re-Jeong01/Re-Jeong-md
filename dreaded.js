@@ -443,7 +443,7 @@ if (menu === 'VIDEO') {
 client.sendMessage(from, { text: cap}, {quoted: m})
 
 } else if (menu === 'IMAGE') {
-client.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/eebe191a0520a79979b34.jpg' }, caption: cap, fileLength: "9999999999"}, { quoted: m })
+client.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/019207dd7bf306d343b7e.jpg' }, caption: cap, fileLength: "9999999999"}, { quoted: m })
 } else if (menu === 'LINK') {
 client.sendMessage(m.chat, {
                         text: cap,
@@ -453,7 +453,7 @@ client.sendMessage(m.chat, {
                                 title: `𝐑𝐀𝐕𝐄𝐍-𝐀𝐈`,
                                 body: `${runtime(process.uptime())}`,
                                 thumbnail: fs.readFileSync('./Raven.jpg'),
-                                sourceUrl: 'https://wa.me/254114660061?text=Hello👋+Nick+Nihostie+Bot+Mkuu+😔',
+                                sourceUrl: 'https://wa.me/27765359269?text=Hello👋+Nick+Nihostie+Bot+Mkuu+😔',
                                 mediaType: 1,
                                 renderLargerThumbnail: true
                             }
@@ -1079,7 +1079,7 @@ await m.reply('Successfully removed!');
  case 'sc': case 'script': case 'repo':
 
  client.sendMessage(m.chat, { image: { url: `https://telegra.ph/file/019207dd7bf306d343b7e.jpg` }, caption: 
-`👋🏻 Hello *${pushname}*,You can deploy Re-Jeong bot using the GitHub link below\n\nFork and give us a star✨.\n\n https://github.com/Guanxii1/Re-Jeong-md\n\nAfter uploading the document connect your repo with this link and deploy\nhttps://dashboard.heroku.com/new-app?template=https://github.com/Guanxii1/Re-Jeong-md\n\nEnjoy and have fun with me😜!\n\nMy owner is Re-Jeong Guanxii!` });
+`👋🏻 Hello *${pushname}*,You can deploy Re-Jeong bot using the GitHub link below\n\nFork and give us a star✨.\n\n https://github.com/Re-Jeong01/Re-Jeong-md\n\nAfter uploading the document connect your repo with this link and deploy\nhttps://dashboard.heroku.com/new-app?template=https://github.com/Re-Jeong01/Re-Jeong-md\n\nEnjoy and have fun with me😜!\n\nMy owner is Re-Jeong Guanxii!` });
 
    break;
                                                   
