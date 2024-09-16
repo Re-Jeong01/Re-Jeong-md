@@ -56,7 +56,7 @@
      "openai": "^3.1.0", 
    "acrcloud": "^1.4.0",
      "ytdl-secktor": "^0.0.1-development", 
- "ytdl-core": "git+ssh://git@github.com:khlevon/node-ytdl-core.git#v4.11.4-patch.2", 
+ "ytdl-core": "npm:@distube/ytdl-core", 
    "yt-search": "^2.10.4", 
      "youtube-yts": "^2.0.0", 
      "pino": "^7.0.5", 
