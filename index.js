@@ -300,7 +300,7 @@ function _0x4f5a() {
         '9rOCBsS',
         '5528200DCrwWN',
         'group\x20rule',
-        'aven\x20Bot',
+        'e-Jeong\x20Bot',
         'lry',
         'cBOYH',
         'ILuES',
