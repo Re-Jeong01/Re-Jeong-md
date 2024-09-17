@@ -169,7 +169,7 @@ function _0x11cc() {
         'split',
         '84AXXWgJ',
         '4435424UJQIXb',
-        'y\x20RAVEN\x20',
+        'y\x20Re-Jeong\x20',
         'TRUE',
         'tibot:\x0a\x0a@',
         '\x20as\x20a\x20bot.',
@@ -192,7 +192,7 @@ function _0x11cc() {
         '184473FwtnYZ',
         '18szWhmE',
         'startsWith',
-        '𝐑𝐀𝐕𝐄𝐍-𝐀𝐈\x20an',
+        'Re-Jeong\x20an',
         '376590puyzhN',
         'key'
     ];
