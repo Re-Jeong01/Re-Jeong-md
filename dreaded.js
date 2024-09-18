@@ -1432,13 +1432,13 @@ break;
   
 break
   case 'play': {
-			if (!text) return zreply(`*Example :*\n\n*Play Mendua*`)
-			zreply(mess.wait);
+			if (!text) return reply(`*Example :*\n\n*Play Mendua*`)
+			reply(mess.wait);
 			let yts = require("youtube-yts")
 			let look = await yts(text);
 			let convert = look.videos[0];
 			const pl = await youtube(convert.url)
-			await VxoZap.sendMessage(m.chat, {
+			await client.sendMessage(m.chat, {
 				audio: {
 					url: pl.mp3
 				},
