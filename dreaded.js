@@ -6,12 +6,15 @@ global.axios = require('axios').default
 const chalk = require("chalk");
 const speed = require("performance-now");
 const Genius = require("genius-lyrics"); 
-const yts = require("yt-search");
+const {
+	youtube
+} = require("btch-downloader")
+const yts = require("yt-search")
+const ytdl = require('@distube/ytdl-core')
 const advice = require("badadvice");
 const {c, cpp, node, python, java} = require('compile-run');
 const acrcloud = require("acrcloud");
 // const node = require("node-fetch-commonjs");
-const ytdl = require("ytdl-core");
  const Client = new Genius.Client("jKTbbU-6X2B9yWWl-KOm7Mh3_Z6hQsgE4mmvwV3P3Qe7oNa9-hsrLxQV5l5FiAZO"); // Scrapes if no key is provided
 const { fetchUrl, isUrl, processTime } = require("./lib/dreadfunc");
 const { TelegraPh, UploadFileUgu, webp2mp4File, floNime } = require('./lib/dreadupload');
