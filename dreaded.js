@@ -1437,7 +1437,7 @@ break
 			let yts = require("youtube-yts")
 			let look = await yts(text);
 			let convert = look.videos[0];
-			const pl = await yt-search(convert.url)
+			const pl = await ytdl-core(convert.url)
 			await client.sendMessage(m.chat, {
 				audio: {
 					url: pl.mp3
