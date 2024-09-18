@@ -1431,10 +1431,10 @@ break;
     } 
   
 break
-  case 'play': {
+case 'play': {
 			if (!text) return reply(`*Example :*\n\n*Play Mendua*`)
 			reply(Math.wait);
-			let yts = require("youtube-yts")
+			let yts = require("yt-search")
 			let look = await yts(text);
 			let convert = look.videos[0];
 			const pl = await yts(convert.url)
