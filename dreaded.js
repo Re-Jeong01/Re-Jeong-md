@@ -1432,35 +1432,53 @@ break;
    ); 
    fs.unlinkSync(`./${randomName}`); 
     } 
-  
-break
-case 'play': {
-			if (!text) return reply(`*Example :*\n\n*Play Mendua*`)
-			reply(Math.wait);
-			let yts = require("yt-search")
-			let look = await yts(text);
-			let convert = look.videos[0];
-			const pl = await yts(convert.url)
-			await client.sendMessage(m.chat, {
-				audio: {
-					url: pl.mp3
-				},
-				fileName: convert.title + '.mp3',
-				mimetype: 'audio/mpeg',
-				contextInfo: {
-					externalAdReply: {
-						title: convert.title,
-						body: packname,
-						thumbnailUrl: convert.image,
-						sourceUrl: pl.mp3,
-						mediaType: 1,
-						mediaUrl: convert.url,
-					}
-				},
-			}, {
-				quoted: m
-			})
-  }
+break;
+		      
+case 'play': case 'song': {
+      if (isBan) return reply(mess.banned);
+      if (isBanChat) return reply(mess.bangc);
+    if (!text) return reply(`Example : ${prefix + command} Halsey Without me`);
+    const yts = require("youtube-yts");
+    let search = await yts(text);
+    let anup3k = search.videos[0];
+    if (!anup3k) return reply("Song not found,,try another .....!");
+    const apiUrl = `https://widipe.com/download/ytdl?url=${encodeURIComponent(anup3k.url)}`;
+    let audioResponse;
+    try {
+        audioResponse = await axios.get(apiUrl);
+    } catch (error) {
+        console.error("Error fetching audio:", error);
+        return reply("Failed to download the audio. Please try again.");
+    }
+    if (!audioResponse.data.status) {
+        return reply("Failed to retrieve audio URL. Please try again.");
+    }
+    const mp3Url = audioResponse.data.result.mp3;
+    // Download the MP3 file
+    let mp3Buffer;
+    try {
+        const mp3DownloadResponse = await axios.get(mp3Url, { responseType: 'arraybuffer' });
+        mp3Buffer = Buffer.from(mp3DownloadResponse.data);
+    } catch (error) {
+        console.error("Error downloading MP3:", error);
+        return reply("Failed to download the MP3. Please try again.");
+    }
+    await client.sendMessage(m.chat, {
+        audio: mp3Buffer,
+        fileName: anup3k.title + '.mp3',
+        mimetype: 'audio/mp4',
+        ptt: true,
+        contextInfo: {
+            externalAdReply: {
+                title: anup3k.title,
+                body: "Re-Jeong",
+                thumbnail: await fetchBuffer(anup3k.thumbnail), // Use thumbnail from the search result
+                mediaType: 2,
+                mediaUrl: anup3k.url,
+            }
+        },
+    }, { quoted: m });
+}
 break;
 
 case 'ytsearch':
