@@ -1470,7 +1470,7 @@ case 'play': case 'song': {
             externalAdReply: {
                 title: anup3k.title,
                 body: "Re-Jeong",
-                thumbnail: await fetchBuffer(anup3k.thumbnail), // Use thumbnail from the search result
+                thumbnail: await (anup3k.thumbnail), // Use thumbnail from the search result
                 mediaType: 2,
                 mediaUrl: anup3k.url,
             }
