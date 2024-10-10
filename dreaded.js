@@ -1435,8 +1435,6 @@ break;
 break;
 		      
 case 'play': case 'song': {
-      if (isBan) return reply(mess.banned);
-      if (isBanChat) return reply(mess.bangc);
     if (!text) return reply(`Example : ${prefix + command} Halsey Without me`);
     const yts = require("youtube-yts");
     let search = await yts(text);
