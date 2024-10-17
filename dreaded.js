@@ -1434,51 +1434,33 @@ break;
     } 
 break;
 		      
-case 'play': case 'song': {
-    if (!text) return reply(`Example : ${prefix + command} Halsey Without me`);
-    const yts = require("youtube-yts");
-    let search = await yts(text);
-    let anup3k = search.videos[0];
-    if (!anup3k) return reply("Song not found,,try another .....!");
-    const apiUrl = `https://widipe.com/download/ytdl?url=${encodeURIComponent(anup3k.url)}`;
-    let audioResponse;
-    try {
-        audioResponse = await axios.get(apiUrl);
-    } catch (error) {
-        console.error("Error fetching audio:", error);
-        return reply("Failed to download the audio. Please try again.");
-    }
-    if (!audioResponse.data.status) {
-        return reply("Failed to retrieve audio URL. Please try again.");
-    }
-    const mp3Url = audioResponse.data.result.mp3;
-    // Download the MP3 file
-    let mp3Buffer;
-    try {
-        const mp3DownloadResponse = await axios.get(mp3Url, { responseType: 'arraybuffer' });
-        mp3Buffer = Buffer.from(mp3DownloadResponse.data);
-    } catch (error) {
-        console.error("Error downloading MP3:", error);
-        return reply("Failed to download the MP3. Please try again.");
-    }
-    await client.sendMessage(m.chat, {
-        audio: mp3Buffer,
-        fileName: anup3k.title + '.mp3',
-        mimetype: 'audio/mp4',
-        ptt: true,
-        contextInfo: {
-            externalAdReply: {
-                title: anup3k.title,
-                body: "Re-Jeong",
-                thumbnail: await (anup3k.thumbnail), // Use thumbnail from the search result
-                mediaType: 2,
-                mediaUrl: anup3k.url,
-            }
-        },
+case "play":{
+	if (!text) return reply('Please provide a song name!');
+	const randomReduction = Math.floor(Math.random() * 5) + 1;
+	const yts = require("youtube-yts");
+	let search = await yts(text);
+	let telaso = search.all[0].url;
+ await reply();
+	let kyuu = await fetchJson (`https://widipe.com/download/ytdl?url=${telaso}`)
+await client.sendMessage(m.chat, {
+  document: {url: kyuu.result.mp3},
+mimetype: "audio/mp3",
+ fileName: `${kyuu.result.title}.mp3`,
+ contextInfo: {
+        externalAdReply: {
+          title: 'Re-Jeong-V4',
+          body: `${search.all[0].title}`,
+          thumbnailUrl: `${search.all[0].thumbnail}`,
+          sourceUrl: `${telaso}`,
+          mediaType: 2,
+          showAdAttribution: true,
+          renderLargerThumbnail: false
+        }
+      }
     }, { quoted: m });
+    client.sendMessage(m.chat, { react: { text: '✅', key: m.key }})
 }
-break;
-
+break
 case 'ytsearch':
     case 'yts': {
         if (!text) {
@@ -1624,62 +1606,33 @@ case 'ytv':
         }
 break;
           
-  case 'video':
-        const getRandomm = (ext) => {
-            return `${Math.floor(Math.random() * 10000)}${ext}`;
-        };
-        if (args.length === 0) {
-            reply(` URL is empty! \nSend ${prefix}ytmp4 url`);
-            return;
+case "video":{
+	if (!text) return reply('Please provide a video name!');
+	const randomReduction = Math.floor(Math.random() * 5) + 1;
+	const yts = require("youtube-yts");
+	let search = await yts(text);
+	let telaso = search.all[0].url;
+    await reply();
+	let kyuu = await fetchJson (`https://widipe.com/download/ytdl?url=${telaso}`)
+await client.sendMessage(m.chat, {
+ document: {url: kyuu.result.mp4},
+mimetype: "video/mp4",
+ fileName: `${search.all[0].title}.mp4`,
+ contextInfo: {
+        externalAdReply: {
+          title: 'Re-Jeong-V4',
+          body: `${search.all[0].title}`,
+          thumbnailUrl: `${search.all[0].thumbnail}`,
+          sourceUrl: `${telaso}`,
+          mediaType: 2,
+          showAdAttribution: true,
+          renderLargerThumbnail: false
         }
-        try {
-            let urlYt = args[0];
-          
-     
-            let infoYt = await ytdl.getInfo(urlYt);
-            //30 MIN
-            if (infoYt.videoDetails.lengthSeconds >= 1800) {
-                reply(`Video file too big!`);
-                return;
-            }
-            let titleYt = infoYt.videoDetails.title;
-            let randomName = getRandomm(".mp4");
-            
-            const stream = ytdl(urlYt, {
-                    filter: (info) => info.itag == 22 || info.itag == 18,
-                })
-                .pipe(fs.createWriteStream(`./${randomName}`));
-            //22 - 1080p/720p and 18 - 360p
-            console.log("Video downloading ->", urlYt);
-            // reply("Downloading.. This may take upto 5 min!");
-            await new Promise((resolve, reject) => {
-                stream.on("error", reject);
-                stream.on("finish", resolve);
-            });
-            
-            let stats = fs.statSync(`./${randomName}`);
-            let fileSizeInBytes = stats.size;
-            // Convert the file size to megabytes (optional)
-            let fileSizeInMegabytes = fileSizeInBytes / (1024 * 1024);
-            console.log("Video downloaded ! Size: " + fileSizeInMegabytes);
-            if (fileSizeInMegabytes <= 100) {
-                client.sendMessage(
-                    from, {
-                        video: fs.readFileSync(`./${randomName}`),
-                        caption: `𝐆𝐞𝐧𝐞𝐫𝐚𝐭𝐞𝐝 𝐛𝐲 rejeong`,
-                    }, {
-                        quoted: m
-                    }
-                );
-            } else {
-                reply(`File size big.`);
-            }
-            
-            fs.unlinkSync(`./${randomName}`);
-        } catch (e) {
-            reply(e.toString())
-        }
-break;
+      }
+    }, { quoted: m });
+    client.sendMessage(m.chat, { react: { text: '✅', key: m.key }})
+}
+break
 
 case "ping": case "speed": {
                m.reply (`*my speed 𝐢𝐬: ${dreadedspeed.toFixed(4)} _𝐦𝐬_*`); 
@@ -1696,57 +1649,33 @@ case "alive": {
  client.sendMessage(m.chat, { video: { url: 'https://telegra.ph/file/019207dd7bf306d343b7e.jpg' }, caption: `Hey @ ${m.pushName}, Re-Jeong Has been alive since  ${runtime(process.uptime())}`, fileLength: "9999999999898989899999999" }, { quoted: m }); 
  }
 break;
-case 'apk': case "app": {
-if (!text) throw `I need an apk name for download`;
-const getRandomm = (ext) => { return `${Math.floor(Math.random() * 10000)}${ext}`; }; 
-         let randomName = getRandomm(".apk"); 
-         const filePath = `./${randomName}`;     // fs.createWriteStream(`./${randomName}`) 
-let search = require('aptoide-scraper') 
-let download = require('aptoide-scraper') 
-         let searc = await search(text);          //console.log(searc); 
-         let data={}; 
-         if(searc.length){ data = await downloadd
-(searc[0].id); } 
-         else return reply("App not found!"); 
-const apkSize = parseInt(data.size); 
-         if(apkSize > 100) return reply(`File bigger!`); 
-const url = data.dllink; 
-          let  inf  ="*App Name :* " +data.name; 
-          inf +="\n*App id        :* " +data.package; 
-          inf +="\n*Last Update       :* " +data.lastup; 
-          inf +="\n*App Size     :* " +data.size; 
-         // inf +="\n*App Link     :* " +data.dllink; 
-         inf +="\n\n "+ "caption"
-
-
-axios.get(url, { responseType: 'stream' }) 
-   .then(response => { 
-     const writer = fs.createWriteStream(filePath); 
-     response.data.pipe(writer); 
-  
-     return new Promise((resolve, reject) => { 
-       writer.on('finish', resolve); 
-       writer.on('error', reject); 
-     }); 
-   }).then(() => { 
- 
-let buttonMessage = { 
-                         document: fs.readFileSync(filePath), 
-                         mimetype: 'application/vnd.android.package-archive', 
-                         fileName: data.name+`.apk`, 
-                         caption : inf 
-  
-                     } 
-
-client.sendMessage(from, buttonMessage, { quoted: m }) 
-
-    fs.unlink(filePath, (err) => { 
-       if (err) { console.error('Error deleting file:', err); } else { console.log('File deleted successfully'); } }); 
-   }) .catch(error => { 
-         fs.unlink(filePath) 
-     return reply('*_Apk not Found, Sorry_*')//:', error.message); 
-   });
-}
+		      
+case "apk":
+      case "apkdl":
+        {
+          if (!text) return reply("Please type the app name");
+        let kyuu = await fetchJson (`https://bk9.fun/search/apk?q=${text}`);
+        let tylor = await fetchJson (`https://bk9.fun/download/apk?id=${kyuu.BK9[0].id}`);
+         await client.sendMessage(
+              m.chat,
+              {
+                document: { url: tylor.BK9.dllink },
+                fileName: tylor.BK9.name,
+                mimetype: "application/vnd.android.package-archive",
+                contextInfo: {
+        externalAdReply: {
+          title: `Re-Jeong-md`,
+          body: `${tylor.BK9.name}`,
+          thumbnailUrl: `${tylor.BK9.icon}`,
+          sourceUrl: `${tylor.BK9.dllink}`,
+          mediaType: 2,
+          showAdAttribution: true,
+          renderLargerThumbnail: false
+        }
+      }
+    }, { quoted: m });
+          }
+      break;
 
           case 'mix': { 
  if (!text) throw `Example : ${prefix + command} 😙+🥲` 
@@ -1882,7 +1811,7 @@ case "movie":
      } 
  break;
  case ".":case"!":case"_":case"-":case"/":case"&":case"+":case"?":case"*": { 
-         m.reply (`Hi ${pushname}, 👋 you have used my prefix? Try typing a command after the prefix like *_help_*`); 
+         m.reply (`Hi ${pushname}, 👋 if you'd like some help you can type .menu to see my commands`); 
  }
  break;
       
