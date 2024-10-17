@@ -2046,7 +2046,7 @@ async function handleGPTMessage(text, m) {
         case 'pic':
       case 'img':
       case 'image': {
-        Client.sendMessage(from, { react: { text: "⌛", key: m.key } });
+        client.sendMessage(from, { react: { text: "⌛", key: m.key } });
 
         if (!args[0]) return reply("Enter a search term to get Google Image!");
 	let gis = require('g-i-s');
@@ -2068,7 +2068,7 @@ async function handleGPTMessage(text, m) {
             footer: `${global.BotName}`,
             headerType: 4,
           };
-          Client.sendMessage(m.chat, buttonMessage, { quoted: m });
+          client.sendMessage(m.chat, buttonMessage, { quoted: m });
         });
       }
         break;
