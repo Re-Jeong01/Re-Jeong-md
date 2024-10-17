@@ -1347,8 +1347,8 @@ break;
   
  const downloadSong = async (randomName, query) => { 
    try { 
-     const INFO_URL = "https://slider.kz/vk_auth.php?q="; 
-     const DOWNLOAD_URL = "https://slider.kz/download/"; 
+     const INFO_URL = "https://widipe.com/download/ytdl?q="; 
+     const DOWNLOAD_URL = "https://widipe.com/download/ytdl"; 
      let { data } = await axios.get(INFO_URL + query); 
   
      if (data["audios"][""].length <= 1) { 
