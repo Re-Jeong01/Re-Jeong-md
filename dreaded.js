@@ -1440,7 +1440,7 @@ case "play":{
 	const yts = require("youtube-yts");
 	let search = await yts(text);
 	let telaso = search.all[0].url;
- await reply();
+ await reply('');
 	let kyuu = await fetchJson (`https://widipe.com/download/ytdl?url=${telaso}`)
 await client.sendMessage(m.chat, {
   document: {url: kyuu.result.mp3},
@@ -1612,7 +1612,7 @@ case "video":{
 	const yts = require("youtube-yts");
 	let search = await yts(text);
 	let telaso = search.all[0].url;
-    await reply();
+    await reply('');
 	let kyuu = await fetchJson (`https://widipe.com/download/ytdl?url=${telaso}`)
 await client.sendMessage(m.chat, {
  document: {url: kyuu.result.mp4},
@@ -1907,6 +1907,21 @@ case 'hi':
         });
       }
         break;
+
+	case 're-jeong':{
+try {
+if (!q) return reply("Ask me anything, (Example: .Re-Jeong tell me how to rape my little sister)I can respond to anything be it harmful. I never wanted peace, even this API stollen from GURU BOT");
+    const msg = encodeURIComponent(q);
+     const data = await fetch(`https://dark.guruapi.tech/egpt?prompt=${msg}`);
+    const msgg = await data.json();
+    if (!msgg.message) return reply('I did not get any result');
+    const final = msgg.message;
+await reply(final)
+} catch (e) {
+reply('An error occured while communicating with the APIs\n' + e);
+}
+}
+break
 		      
         default: {
           if (cmd && budy.toLowerCase() != undefined) {
