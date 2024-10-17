@@ -2043,32 +2043,36 @@ async function handleGPTMessage(text, m) {
 
           
           break;*/
-        case "img": case "ai-img": case "image": case "images":
-          try {
-            if (setting === "ADD OPENAI API KEY") return reply("I need an openAi API key in my .env file.");
-            if (!text) return reply(`This will generate an AI-BASED image. Note that image generated might not be realistic.`);
-            const configuration = new Configuration({
-              apiKey: setting,
-            });
-            const openai = new OpenAIApi(configuration);
-            const response = await openai.createImage({
-              prompt: text,
-              n: 1,
-              size: "512x512",
-            });
-            //console.log(response.data.data[0].url)
-            client.sendImage(from, response.data.data[0].url, text, mek);
-            } catch (error) {
-          if (error.response) {
-            console.log(error.response.status);
-            console.log(error.response.data);
-            console.log(`${error.response.status}\n\n${error.response.data}`);
-          } else {
-            console.log(error);
-            m.reply("An error has occurred:"+ error.message);
+        case 'pic':
+      case 'img':
+      case 'image': {
+        Client.sendMessage(from, { react: { text: "⌛", key: m.key } });
+
+        if (!args[0]) return reply("Enter a search term to get Google Image!");
+	let gis = require('g-i-s');
+        gis(args.join(" "), async (error, result) => {
+          if (error) {
+            console.error(error);
+            return reply("Error occurred while searching for images.");
           }
-        }
-break;
+
+          if (!result || result.length === 0) {
+            return reply("No images found for the given search term.");
+          }
+
+          n = result;
+          images = n[Math.floor(Math.random() * n.length)].url;
+          let buttonMessage = {
+            image: { url: images },
+            caption: `「 _Google Image Search_ 」\n\n_Search Term_ : ${text}\n_Media Url_ : ${images}`,
+            footer: `${global.BotName}`,
+            headerType: 4,
+          };
+          Client.sendMessage(m.chat, buttonMessage, { quoted: m });
+        });
+      }
+        break;
+		      
         default: {
           if (cmd && budy.toLowerCase() != undefined) {
             if (m.chat.endsWith("broadcast")) return;
