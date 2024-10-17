@@ -1931,119 +1931,25 @@ case "movie":
                  await client.groupAcceptInvite(result).then((res) =>  reply(jsonformat(res))).catch((err) =>reply(`Link has problem.`)) 
   
              } 
-  
-  
- break;
+   break;
  
-        case "gpt": case "g": 
-          
-
-            if (!text) return reply("Hello am Re-Jeong an Ai developed by Re-Jeong, how can I help you today?");
-
-           const configuration = new Configuration({
-
-              apiKey: setting,
-
-            });
-
-            const g = new OpenAIApi(configuration);
-
-            try {
-
-const response = await g.createChatCompletion({
-
-          model: "gpt-3.5-turbo",
-
-          messages: [{role: "user", content: text}],
-
-          });
-
-          m.reply(`${response.data.choices[0].message.content}`);
-
-          } catch (error) {
-
-          if (error.response) {
-
-            console.log(error.response.status);
-
-            console.log(error.response.data);
-
-            console.log(`${error.response.status}\n\n${error.response.data}`);
-
+case 'hi':
+      {
+        if (!text) return reply(`Hey @ ${m.pushName}, How can i assist you today😉`);
+          let d = await fetchJson(
+            `https://bk9.fun/ai/gptt4?q=${text}`
+          );
+          if (!d.BK9) {
+            return reply(
+              "An error occurred while fetching the AI chatbot response. Please try again later."
+            );
           } else {
-
-            console.log(error);
-
-            m.reply("I\'m Facing An Error:"+ error.message);
-
+            reply(d.BK9);
           }
+        }
+        break;        
 
-            }
-
-break;
-/*
-case "g":
-
-const {
-  Configuration,
-  OpenAIApi
-} = require("g");
-
-// Function to save a conversation to the database
-async function saveConversation(text) {
-  await db.set("conversation", [{ role: "user", content: text }]);
-}
-
-// Function to get a conversation from the database
-async function getConversation() {
-  return await db.get("conversation") || [];
-}
-
-// Handler for the "gpt" or "g" case
-async function handleGPTMessage(text, m) {
-  if (!text) return m.reply("Hello am 𝐂𝐑𝐎𝐖𝐍 an Ai developed by 𝐒𝐢𝐫𝐦, how can I help you today?");
-
-  const configuration = new Configuration({
-    apiKey: setting,
-  });
-
-  const gpt = new OpenAIApi(configuration);
-
-  // Get the previous conversation history from the database
-  const previousMessages = await getConversation();
-
-  // Add the user's new message to the conversation
-  previousMessages.push({ role: "user", content: text });
-
-  try {
-    const response = await openai.createChatCompletion({
-      model: "gpt-3.5-turbo",
-      messages: previousMessages, // Include the entire conversation history
-    });
-
-    // Extract and send the model's reply
-    const modelReply = response.data.choices[0].message.content;
-    m.reply(modelReply);
-
-    // Save the updated conversation history to the database
-    await saveConversation(text); // Store only the latest user message
-  } catch (error) {
-    if (error.response) {
-      console.log(error.response.status);
-      console.log(error.response.data);
-      console.log(`${error.response.status}\n\n${error.response.data}`);
-    } else {
-      console.log(error);
-      m.reply("I'm Facing An Error: " + error.message);
-    }
-  }
-}
-
-
-
-          
-          break;*/
-        case 'pic':
+      case 'pic':
       case 'img':
       case 'image': {
         client.sendMessage(from, { react: { text: "⌛", key: m.key } });
